@@ -1,0 +1,294 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const services = [
+  {
+    icon: "☀️",
+    title: "Solar Panel Installation",
+    description:
+      "High-efficiency monocrystalline panels sized and positioned for maximum output on your roof.",
+  },
+  {
+    icon: "🔋",
+    title: "Battery Storage",
+    description:
+      "Store the energy you generate and keep the lights on even when the grid goes down.",
+  },
+  {
+    icon: "📊",
+    title: "Energy Monitoring",
+    description:
+      "Real-time dashboard lets you track production, consumption, and savings from any device.",
+  },
+  {
+    icon: "🔧",
+    title: "Maintenance & Support",
+    description:
+      "Annual inspections and a 25-year panel warranty mean your system keeps performing.",
+  },
+];
+
+const stats = [
+  { value: "2,400+", label: "Homes Powered" },
+  { value: "98%", label: "Customer Satisfaction" },
+  { value: "$1,800", label: "Average Annual Savings" },
+  { value: "25 yr", label: "Panel Warranty" },
+];
+
+const faqs = [
+  {
+    q: "How much does a solar installation cost?",
+    a: "Most residential systems range from $15,000–$30,000 before the 30% federal tax credit. Our team will provide a free, no-obligation quote tailored to your home.",
+  },
+  {
+    q: "How long does installation take?",
+    a: "Most installations are completed in one to two days. Permitting and grid connection typically add two to four weeks.",
+  },
+  {
+    q: "What happens on cloudy days?",
+    a: "Panels still produce power in diffuse light. With a battery system you can draw on stored energy, and you remain connected to the grid as a backup.",
+  },
+  {
+    q: "Will solar panels damage my roof?",
+    a: "Our certified installers use non-penetrating mounts wherever possible and flash every penetration to manufacturer spec, preserving your roof warranty.",
+  },
+];
+---
+
+<Layout>
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+      <a href="/" class="flex items-center gap-2 font-bold text-xl text-amber-500">
+        <span class="text-2xl">☀️</span> SolarBright
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="#services" class="hover:text-amber-500 transition-colors">Services</a>
+        <a href="#why-us" class="hover:text-amber-500 transition-colors">Why Us</a>
+        <a href="#faq" class="hover:text-amber-500 transition-colors">FAQ</a>
+      </nav>
+      <a
+        href="#contact"
+        class="bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors"
+      >
+        Get a Free Quote
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-white py-24 sm:py-32">
+      <div class="absolute inset-0 pointer-events-none select-none">
+        <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-amber-200 opacity-30 blur-3xl"></div>
+        <div class="absolute bottom-0 -left-16 w-72 h-72 rounded-full bg-orange-200 opacity-20 blur-2xl"></div>
+      </div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 text-center">
+        <span class="inline-block bg-amber-100 text-amber-700 text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-6">
+          Trusted Solar Installer Since 2012
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+          Power Your Home<br />
+          <span class="text-amber-500">With the Sun</span>
+        </h1>
+        <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-600 mb-10">
+          SolarBright designs, installs, and supports solar energy systems that cut your electricity
+          bill, protect you from rising rates, and reduce your carbon footprint.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="#contact"
+            class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-bold px-8 py-4 rounded-full text-lg transition-colors shadow-lg shadow-amber-200"
+          >
+            Get a Free Quote
+          </a>
+          <a
+            href="#services"
+            class="w-full sm:w-auto border border-gray-300 hover:border-amber-400 text-gray-700 font-semibold px-8 py-4 rounded-full text-lg transition-colors"
+          >
+            See Our Services
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="bg-amber-500 py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        {
+          stats.map((s) => (
+            <div>
+              <div class="text-4xl font-extrabold">{s.value}</div>
+              <div class="mt-1 text-amber-100 text-sm font-medium uppercase tracking-wide">
+                {s.label}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">What We Offer</h2>
+          <p class="text-gray-500 max-w-xl mx-auto">
+            End-to-end solar solutions — from the first site assessment to decades of support.
+          </p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {
+            services.map((s) => (
+              <div class="group p-8 rounded-2xl border border-gray-100 hover:border-amber-200 hover:shadow-lg hover:shadow-amber-50 transition-all">
+                <div class="text-4xl mb-4">{s.icon}</div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">{s.title}</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">{s.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Us -->
+    <section id="why-us" class="py-24 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-amber-500 text-sm font-bold uppercase tracking-widest">Why SolarBright</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-3 mb-6">
+            Honest Savings.<br />Zero Surprises.
+          </h2>
+          <ul class="space-y-5 text-gray-600">
+            {
+              [
+                "NABCEP-certified installers on every job",
+                "In-house design — no third-party subcontractors",
+                "Transparent, itemised quotes with no hidden fees",
+                "Single point of contact from survey to switch-on",
+                "25-year product & 10-year workmanship warranty",
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xs font-bold">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-amber-400 to-orange-500 rounded-3xl p-10 text-white">
+          <blockquote class="text-lg font-medium leading-relaxed italic mb-6">
+            "SolarBright handled everything — permits, utility paperwork, the works. Our bill went from
+            $280 to $14 in the first month."
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-white/30 flex items-center justify-center font-bold text-lg">J</div>
+            <div>
+              <div class="font-semibold">Jessica M.</div>
+              <div class="text-amber-100 text-sm">Homeowner, Austin TX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-24 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+          <p class="text-gray-500">Have more questions? Reach out — we love talking solar.</p>
+        </div>
+        <div class="space-y-6">
+          {
+            faqs.map((faq) => (
+              <div class="border border-gray-100 rounded-2xl p-7">
+                <h3 class="font-bold text-gray-900 mb-2">{faq.q}</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">{faq.a}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / CTA -->
+    <section id="contact" class="py-24 bg-gradient-to-br from-amber-500 to-orange-500">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center text-white">
+        <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Ready to Go Solar?</h2>
+        <p class="text-amber-100 mb-10 text-lg">
+          Get your free, no-obligation quote today. Most homeowners see payback in 6–8 years — and
+          free electricity for decades after.
+        </p>
+        <form class="bg-white rounded-2xl p-8 text-left space-y-5 shadow-xl">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1">First Name</label>
+              <input
+                type="text"
+                placeholder="Jane"
+                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1">Last Name</label>
+              <input
+                type="text"
+                placeholder="Doe"
+                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm"
+              />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">Email</label>
+            <input
+              type="email"
+              placeholder="jane@example.com"
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">Phone (optional)</label>
+            <input
+              type="tel"
+              placeholder="+1 (555) 000-0000"
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">Monthly Electricity Bill</label>
+            <select class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm bg-white">
+              <option value="">Select a range</option>
+              <option>Under $100</option>
+              <option>$100 – $200</option>
+              <option>$200 – $400</option>
+              <option>Over $400</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 rounded-xl transition-colors text-base"
+          >
+            Request My Free Quote →
+          </button>
+          <p class="text-center text-xs text-gray-400">We never share your data. No spam, ever.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-2 text-white font-bold text-lg">
+        <span>☀️</span> SolarBright
+      </div>
+      <p class="text-sm text-center">© {new Date().getFullYear()} SolarBright. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="#services" class="hover:text-white transition-colors">Services</a>
+        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+</Layout>
