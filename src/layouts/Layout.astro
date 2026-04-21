@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "SolarBright — Clean Energy for Every Home",
-  description = "SolarBright installs premium solar panels and battery systems, helping homeowners cut energy bills and live sustainably.",
+  title = "Purewatt — Lower Your Electric Bill",
+  description = "Florida's independent solar energy advisor. No upfront cost, no loan required. Get your free savings analysis today.",
 } = Astro.props;
 ---
 
@@ -16,13 +16,27 @@ const {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+
+    <link rel="icon" type="image/png" href="/images/logos/purewatt-logo-icon.png" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <!-- DM Sans + Barlow Condensed — font-display:swap prevents render blocking -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap"
+      rel="stylesheet"
+    />
+
     <title>{title}</title>
   </head>
-  <body class="bg-white text-gray-900 antialiased">
+  <body class="font-sans text-body-text antialiased">
     <slot />
   </body>
 </html>

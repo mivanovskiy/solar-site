@@ -1,0 +1,193 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { img } from "../lib/cloudinary";
+
+const teamPhoto =
+  "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=900&q=80";
+
+const values = [
+  {
+    title: "Transparency First",
+    body: "We show you the real numbers — costs, savings, and contract terms — in plain language before you make any decision.",
+  },
+  {
+    title: "Your Savings, Not Our Commission",
+    body: "We recommend the option that saves you the most. Not the option that pays us the most. These should be the same thing — and with us, they are.",
+  },
+  {
+    title: "No Pressure, Ever",
+    body: "We present the facts and let you decide. If solar isn't the right fit for your home, we'll tell you that too.",
+  },
+  {
+    title: "Full-Service Support",
+    body: "From the first consultation to years of system monitoring, we're your ongoing point of contact — not just a one-time transaction.",
+  },
+];
+
+const cities = [
+  "Miami",
+  "Fort Lauderdale",
+  "Tampa",
+  "Orlando",
+  "Jacksonville",
+  "Naples",
+  "Sarasota",
+  "Palm Beach",
+  "Gainesville",
+  "Tallahassee",
+  "Fort Myers",
+  "Ocala",
+];
+---
+
+<Layout
+  title="About Purewatt — Florida's Independent Solar Advisor"
+  description="Purewatt is Florida's independent solar energy advisor. We're not an installer — we're your advocate, finding the best solar solution for your home at no upfront cost."
+>
+  <Nav />
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="bg-off-white py-16 md:py-24 border-b border-border-gray">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-xs text-brand-orange font-semibold uppercase tracking-widest mb-4">
+          Who We Are
+        </p>
+        <h1 class="font-display text-5xl md:text-6xl font-extrabold tracking-tight text-body-text mb-5">
+          About Purewatt
+        </h1>
+        <p class="text-xl text-muted-text leading-relaxed max-w-2xl mx-auto">
+          We're not a solar installer. We're the advisor that helps you find the right one —
+          and makes sure you're getting the best deal available.
+        </p>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section class="bg-white py-20 md:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          <!-- Text -->
+          <div>
+            <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight text-body-text mb-6">
+              The Independent Advisor Model
+            </h2>
+            <p class="text-lg text-muted-text leading-relaxed mb-5">
+              When you call a solar company, you're talking to someone who has one product to sell.
+              They'll tell you it's the best option available — because it's the only option they have.
+            </p>
+            <p class="text-lg text-muted-text leading-relaxed mb-5">
+              Purewatt is different. We don't install solar. We don't manufacture panels.
+              We don't get paid more for recommending one installer over another.
+            </p>
+            <p class="text-lg text-muted-text leading-relaxed mb-8">
+              Our job is to analyze your home and energy costs, survey the options available
+              in your area, and match you with the program that genuinely delivers the most savings.
+              That's it. That's the entire business model.
+            </p>
+            <div class="bg-off-white rounded-xl border border-border-gray p-6">
+              <p class="text-lg font-semibold text-body-text italic leading-relaxed">
+                "We lower your bill. That's the goal. Everything else is just how we get there."
+              </p>
+            </div>
+          </div>
+
+          <!-- Image -->
+          <div class="rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src={img(teamPhoto, 900)}
+              alt="Purewatt energy advisor consulting with a Florida homeowner"
+              class="w-full aspect-[4/3] object-cover"
+              loading="lazy"
+              width="900"
+              height="675"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="bg-off-white py-20 md:py-28 border-t border-border-gray">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <p class="text-xs text-brand-orange font-semibold uppercase tracking-widest mb-3">
+            How We Work
+          </p>
+          <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight text-body-text">
+            What We Stand For
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {values.map((v) => (
+            <div class="bg-white rounded-2xl border border-border-gray p-8">
+              <h3 class="font-semibold text-xl text-body-text mb-3">{v.title}</h3>
+              <p class="text-muted-text leading-relaxed">{v.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE AREA -->
+    <section class="bg-white py-20 border-t border-border-gray">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="text-xs text-brand-orange font-semibold uppercase tracking-widest mb-4">
+              Where We Operate
+            </p>
+            <h2 class="font-display text-4xl font-bold tracking-tight text-body-text mb-5">
+              We Serve All of Florida
+            </h2>
+            <p class="text-lg text-muted-text leading-relaxed mb-5">
+              From Miami to Jacksonville, Tampa to Orlando, the Panhandle to the Keys —
+              our installer network and program access covers every corner of Florida.
+            </p>
+            <p class="text-lg text-muted-text leading-relaxed">
+              Florida's year-round sunshine makes it one of the best states for solar in the country.
+              If you're a Florida homeowner, there's a very good chance we can lower your electric bill.
+            </p>
+          </div>
+
+          <div class="bg-off-white rounded-2xl border border-border-gray p-8">
+            <p class="text-xs font-semibold text-muted-text uppercase tracking-widest mb-5">
+              Markets We Cover
+            </p>
+            <div class="grid grid-cols-2 gap-y-3 gap-x-6">
+              {cities.map((city) => (
+                <span class="text-sm text-body-text flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0"></span>
+                  {city}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-brand-orange py-20">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="font-display text-4xl font-extrabold tracking-tight text-white mb-4">
+          Let's Find Your Best Option
+        </h2>
+        <p class="text-white/80 text-lg mb-8">
+          Free, no-obligation analysis. We'll show you exactly what's available for your home.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center bg-white hover:bg-off-white text-brand-orange font-bold px-10 py-4 rounded-lg text-lg transition-colors duration-200"
+        >
+          Get My Free Analysis
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

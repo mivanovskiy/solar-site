@@ -1,0 +1,179 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const steps = [
+  {
+    num: "01",
+    title: "We Analyze Your Home and Current Bill",
+    body: [
+      "We start with a free consultation where we review your recent electric bills, home details, roof orientation, and sun exposure. This tells us exactly what solar solution will deliver the highest savings for your specific property.",
+      "Unlike installers who jump straight to a pitch, we take time to understand your energy usage, your goals, and your concerns — so we can match you with the right option, not just any option.",
+    ],
+    detail: "Takes about 15 minutes. No site visit required to get started.",
+  },
+  {
+    num: "02",
+    title: "We Source the Best Solution From Our Network",
+    body: [
+      "With your home profile in hand, we shop our network of vetted Florida installers and program structures. We compare costs, warranties, equipment, and financing options — then recommend the one that delivers the best value for you.",
+      "Because we're an independent advisor — not tied to a single company — we have no reason to push one product over another. Your savings are our only agenda.",
+    ],
+    detail: "Typically takes 2–3 business days. We present options clearly, without jargon.",
+  },
+  {
+    num: "03",
+    title: "Installation, Activation, and Ongoing Support",
+    body: [
+      "Once you choose your option, we coordinate everything: permits, utility interconnection paperwork, scheduling with the installer, and final activation. You don't need to manage any of it.",
+      "After installation, your system is fully monitored and maintained. If anything ever needs attention — cleaning, repairs, inverter issues — it's handled at no cost to you. You simply enjoy lower, predictable energy bills.",
+    ],
+    detail:
+      "Installation typically takes 1–2 days. System activation follows within 2–4 weeks (permits + utility approval).",
+  },
+];
+
+const faqs = [
+  {
+    q: "Do I need to own my home?",
+    a: "Yes, solar programs are available for homeowners. If you rent, let us know — there may be community solar options in your area.",
+  },
+  {
+    q: "Will my bill really go down immediately?",
+    a: "In most cases, yes. Your new energy cost is set from day one and is typically 30–40% lower than what you're paying today to your utility.",
+  },
+  {
+    q: "What if I want to sell my home?",
+    a: "Solar systems generally increase home value. Depending on the program structure, the agreement can transfer to the new buyer — often making your home more attractive on the market.",
+  },
+  {
+    q: "Is there any risk or commitment involved?",
+    a: "We present multiple program structures including options with minimal commitment. We'll explain each option clearly before you make any decision.",
+  },
+  {
+    q: "How long does the whole process take?",
+    a: "From your first consultation to system activation typically takes 4–8 weeks — most of that is permitting and utility paperwork, not installation.",
+  },
+];
+---
+
+<Layout
+  title="How It Works — Purewatt | Florida Solar Advisor"
+  description="Three steps from your current electric bill to a lower one. Learn how Purewatt analyzes, sources, and implements the right solar solution for your Florida home."
+>
+  <Nav />
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="bg-off-white py-16 md:py-24 border-b border-border-gray">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-xs text-brand-orange font-semibold uppercase tracking-widest mb-4">
+          The Process
+        </p>
+        <h1 class="font-display text-5xl md:text-6xl font-extrabold tracking-tight text-body-text mb-5">
+          How It Works
+        </h1>
+        <p class="text-xl text-muted-text leading-relaxed max-w-2xl mx-auto">
+          We handle the complexity so you don't have to. Here's exactly what happens from
+          your first conversation to your first lower bill.
+        </p>
+      </div>
+    </section>
+
+    <!-- STEPS -->
+    <section class="bg-white py-20 md:py-28">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="space-y-0">
+          {steps.map((step, i) => (
+            <div
+              class={`grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start ${
+                i < steps.length - 1
+                  ? "pb-16 mb-16 border-b border-border-gray"
+                  : ""
+              }`}
+            >
+              <!-- Number badge -->
+              <div class="md:col-span-2 flex md:justify-center">
+                <div class="w-16 h-16 rounded-2xl bg-orange-tint flex items-center justify-center flex-shrink-0">
+                  <span class="font-display text-2xl font-extrabold text-brand-orange">
+                    {step.num}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="md:col-span-10">
+                <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-body-text mb-5">
+                  {step.title}
+                </h2>
+                <div class="space-y-4 mb-6">
+                  {step.body.map((para) => (
+                    <p class="text-lg text-muted-text leading-relaxed">{para}</p>
+                  ))}
+                </div>
+                <div class="inline-flex items-center gap-2 bg-off-white border border-border-gray rounded-lg px-4 py-2.5">
+                  <svg
+                    class="w-4 h-4 text-brand-orange flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="text-sm text-body-text">{step.detail}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-off-white py-20 md:py-28 border-t border-border-gray">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <p class="text-xs text-brand-orange font-semibold uppercase tracking-widest mb-3">
+            Common Questions
+          </p>
+          <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight text-body-text">
+            Questions About the Process
+          </h2>
+        </div>
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <div class="bg-white rounded-xl border border-border-gray p-7">
+              <h3 class="font-semibold text-body-text mb-2">{faq.q}</h3>
+              <p class="text-muted-text leading-relaxed text-sm">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-brand-orange py-20">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+          Ready to Get Started?
+        </h2>
+        <p class="text-white/80 text-lg mb-8">
+          Your free savings analysis takes less than 5 minutes. No obligation, no pressure.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center bg-white hover:bg-off-white text-brand-orange font-bold px-10 py-4 rounded-lg text-lg transition-colors duration-200"
+        >
+          Get My Free Analysis
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
