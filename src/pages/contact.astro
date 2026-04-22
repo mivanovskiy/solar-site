@@ -154,6 +154,30 @@ import Footer from "../components/Footer.astro";
                 />
               </div>
 
+              <!-- TCPA Consent -->
+              <div class="flex items-start gap-3 bg-off-white border border-border-gray rounded-lg p-4">
+                <div class="relative flex-shrink-0 mt-0.5">
+                  <input
+                    type="checkbox"
+                    id="tcpa-consent"
+                    name="tcpa-consent"
+                    required
+                    class="peer w-5 h-5 rounded border-2 border-border-gray text-brand-orange accent-brand-orange cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-1"
+                  />
+                </div>
+                <label for="tcpa-consent" class="text-xs text-muted-text leading-relaxed cursor-pointer">
+                  <span class="font-semibold text-body-text">I agree to be contacted by Purewatt.</span>{" "}
+                  By checking this box, I consent to Purewatt and its authorized partners contacting me
+                  at the phone number and email address provided above — including via calls, texts, and
+                  emails — regarding solar energy products and services. I understand this consent is not
+                  required to make a purchase and I may opt out at any time by replying STOP to any text
+                  or contacting us at{" "}
+                  <a href="mailto:info@purewatt.solar" class="text-brand-orange hover:underline">info@purewatt.solar</a>.
+                  Message and data rates may apply.
+                  <span class="text-brand-orange ml-1" aria-hidden="true">*</span>
+                </label>
+              </div>
+
               <!-- Submit -->
               <button
                 type="submit"
@@ -171,7 +195,8 @@ import Footer from "../components/Footer.astro";
               </button>
 
               <p class="text-xs text-muted-text text-center">
-                We never share or sell your information. No spam, ever.
+                We never share or sell your information.
+                You may opt out of communications at any time.
               </p>
             </form>
 
