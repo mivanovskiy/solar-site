@@ -2,6 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import { img } from "../lib/cloudinary";
+
+const installationPhoto = "/images/photos/intallation-in-progress.JPG";
+const completedPhoto = "/images/photos/finished-installation.JPG";
 
 const steps = [
   {
@@ -30,7 +34,7 @@ const steps = [
       "After installation, your system is fully monitored and maintained. If anything ever needs attention — cleaning, repairs, inverter issues — it's handled at no cost to you. You simply enjoy lower, predictable energy bills.",
     ],
     detail:
-      "Installation typically takes 1–2 days. System activation follows within 2–4 weeks (permits + utility approval).",
+      "Preparation typically takes 2–4 weeks (permits + utility approval). Installation itself takes just 1–2 days.",
   },
 ];
 
@@ -41,7 +45,7 @@ const faqs = [
   },
   {
     q: "Will my bill really go down immediately?",
-    a: "In most cases, yes. Your new energy cost is set from day one and is typically 30–40% lower than what you're paying today to your utility.",
+    a: "In most cases, yes. Your new energy cost is set from day one and is typically 20–40% lower than what you're paying today to your utility.",
   },
   {
     q: "What if I want to sell my home?",
@@ -66,15 +70,18 @@ const faqs = [
 
   <main>
     <!-- PAGE HERO -->
-    <section class="bg-off-white py-16 md:py-24 border-b border-border-gray">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p class="text-xs text-brand-orange font-semibold uppercase tracking-widest mb-4">
+    <section class="relative bg-ink py-20 md:py-28 overflow-hidden">
+      <div class="absolute inset-0 bg-orange-radial opacity-80 pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-orange/40 to-transparent"></div>
+
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-xs text-brand-orange font-semibold uppercase tracking-[0.18em] mb-4">
           The Process
         </p>
-        <h1 class="font-display text-5xl md:text-6xl font-extrabold tracking-tight text-body-text mb-5">
+        <h1 class="font-display text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-5">
           How It Works
         </h1>
-        <p class="text-xl text-muted-text leading-relaxed max-w-2xl mx-auto">
+        <p class="text-xl text-white/70 leading-relaxed max-w-2xl mx-auto">
           We handle the complexity so you don't have to. Here's exactly what happens from
           your first conversation to your first lower bill.
         </p>
@@ -87,45 +94,73 @@ const faqs = [
         <div class="space-y-0">
           {steps.map((step, i) => (
             <div
-              class={`grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start ${
+              class={`group ${
                 i < steps.length - 1
                   ? "pb-16 mb-16 border-b border-border-gray"
                   : ""
               }`}
             >
-              <!-- Number badge -->
-              <div class="md:col-span-2 flex md:justify-center">
-                <div class="w-16 h-16 rounded-2xl bg-orange-tint flex items-center justify-center flex-shrink-0">
-                  <span class="font-display text-2xl font-extrabold text-brand-orange">
-                    {step.num}
-                  </span>
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+                <!-- Number badge -->
+                <div class="md:col-span-2 flex md:justify-center">
+                  <div class="w-16 h-16 rounded-2xl bg-orange-tint flex items-center justify-center flex-shrink-0 shadow-card group-hover:bg-brand-orange group-hover:shadow-orange-glow transition-all duration-300">
+                    <span class="font-display text-2xl font-extrabold text-brand-orange group-hover:text-white transition-colors duration-300">
+                      {step.num}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Content -->
-              <div class="md:col-span-10">
-                <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-body-text mb-5">
-                  {step.title}
-                </h2>
-                <div class="space-y-4 mb-6">
-                  {step.body.map((para) => (
-                    <p class="text-lg text-muted-text leading-relaxed">{para}</p>
-                  ))}
-                </div>
-                <div class="inline-flex items-center gap-2 bg-off-white border border-border-gray rounded-lg px-4 py-2.5">
-                  <svg
-                    class="w-4 h-4 text-brand-orange flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <span class="text-sm text-body-text">{step.detail}</span>
+                <!-- Content -->
+                <div class="md:col-span-10">
+                  <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-body-text mb-5">
+                    {step.title}
+                  </h2>
+                  <div class="space-y-4 mb-6">
+                    {step.body.map((para) => (
+                      <p class="text-lg text-muted-text leading-relaxed">{para}</p>
+                    ))}
+                  </div>
+                  <div class="inline-flex items-center gap-2 bg-off-white border border-border-gray rounded-lg px-4 py-2.5 shadow-card">
+                    <svg
+                      class="w-4 h-4 text-brand-orange flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <span class="text-sm text-body-text">{step.detail}</span>
+                  </div>
+
+                  {/* Photo for Step 03 — installation in progress */}
+                  {i === 2 && (
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div class="rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 group/img">
+                        <img
+                          src={img(installationPhoto, 700)}
+                          alt="Solar panels being installed on a Florida home rooftop"
+                          class="w-full h-52 object-cover transition-transform duration-500 group-hover/img:scale-[1.03]"
+                          loading="lazy"
+                          width="700"
+                          height="467"
+                        />
+                      </div>
+                      <div class="rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 group/img">
+                        <img
+                          src={img(completedPhoto, 700)}
+                          alt="Finished solar installation on Florida home with pool"
+                          class="w-full h-52 object-cover transition-transform duration-500 group-hover/img:scale-[1.03]"
+                          loading="lazy"
+                          width="700"
+                          height="467"
+                        />
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -135,8 +170,10 @@ const faqs = [
     </section>
 
     <!-- FAQ -->
-    <section class="bg-off-white py-20 md:py-28 border-t border-border-gray">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative bg-off-white py-20 md:py-28 border-t border-border-gray overflow-hidden">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-radial-soft opacity-60 pointer-events-none" aria-hidden="true"></div>
+
+      <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <p class="text-xs text-brand-orange font-semibold uppercase tracking-widest mb-3">
             Common Questions
@@ -147,9 +184,12 @@ const faqs = [
         </div>
         <div class="space-y-4">
           {faqs.map((faq) => (
-            <div class="bg-white rounded-xl border border-border-gray p-7">
-              <h3 class="font-semibold text-body-text mb-2">{faq.q}</h3>
-              <p class="text-muted-text leading-relaxed text-sm">{faq.a}</p>
+            <div class="group bg-white rounded-xl border border-border-gray p-7 shadow-card hover:shadow-card-hover hover:border-brand-orange/30 hover:-translate-y-0.5 transition-all duration-300">
+              <h3 class="font-semibold text-body-text mb-2 flex items-start gap-3">
+                <span class="w-1 h-5 bg-brand-orange rounded-full flex-shrink-0 mt-0.5 group-hover:h-6 transition-all duration-300"></span>
+                {faq.q}
+              </h3>
+              <p class="text-muted-text leading-relaxed text-sm pl-4">{faq.a}</p>
             </div>
           ))}
         </div>
@@ -157,19 +197,22 @@ const faqs = [
     </section>
 
     <!-- CTA -->
-    <section class="bg-brand-orange py-20">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+    <section class="relative bg-brand-orange py-20 overflow-hidden">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2" aria-hidden="true"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3" aria-hidden="true"></div>
+
+      <div class="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <h2 class="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
           Ready to Get Started?
         </h2>
-        <p class="text-white/80 text-lg mb-8">
+        <p class="text-white/85 text-lg mb-8">
           Your free savings analysis takes less than 5 minutes. No obligation, no pressure.
         </p>
         <a
           href="/contact"
-          class="inline-flex items-center justify-center bg-white hover:bg-off-white text-brand-orange font-bold px-10 py-4 rounded-lg text-lg transition-colors duration-200"
+          class="inline-flex items-center justify-center bg-white hover:bg-ink text-brand-orange hover:text-white font-bold px-10 py-4 rounded-lg text-lg shadow-ink-deep hover:-translate-y-1 active:translate-y-0 transition-all duration-300 cursor-pointer"
         >
-          Get My Free Analysis
+          Get a Free Consultation
         </a>
       </div>
     </section>
