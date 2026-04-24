@@ -179,6 +179,10 @@ import Footer from "../components/Footer.astro";
                 </label>
               </div>
 
+              <p id="tcpa-error" class="hidden text-sm text-red-600 font-medium -mt-2">
+                You must agree to be contacted before submitting.
+              </p>
+
               <!-- Submit -->
               <button
                 type="submit"
@@ -305,8 +309,23 @@ import Footer from "../components/Footer.astro";
   const btnText = document.getElementById("btn-text");
   const btnLoading = document.getElementById("btn-loading");
 
+  const tcpaCheckbox = document.getElementById("tcpa-consent") as HTMLInputElement | null;
+  const tcpaError = document.getElementById("tcpa-error");
+
+  tcpaCheckbox?.addEventListener("change", () => {
+    if (tcpaCheckbox.checked) tcpaError?.classList.add("hidden");
+  });
+
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // TCPA gate — must be checked before anything else
+    if (!tcpaCheckbox?.checked) {
+      tcpaError?.classList.remove("hidden");
+      tcpaCheckbox?.focus();
+      return;
+    }
+    tcpaError?.classList.add("hidden");
 
     btnText?.classList.add("hidden");
     btnLoading?.classList.remove("hidden");
