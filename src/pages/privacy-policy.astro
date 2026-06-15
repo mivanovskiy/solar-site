@@ -1,0 +1,152 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const collect = [
+  "Contact data you submit — name, phone, email, and ZIP code.",
+  "Property data needed to scope your project — monthly utility bill and property type.",
+  "Messages you send us by call, SMS, or email.",
+  "Anonymous web analytics — browser type, pages visited, and approximate region.",
+];
+
+const use = [
+  "To prepare and follow up on your free savings estimate.",
+  "To match you with vetted installation partners and coordinate your project.",
+  "To respond to questions and service requests after your install.",
+  "To meet applicable legal and record-keeping obligations.",
+];
+
+const sharing = [
+  "We do not sell your information. We share it only with our team, vetted installation partners involved in your project, and operational vendors (email, scheduling) bound by confidentiality agreements.",
+  "SMS consent will not be shared with any third parties for marketing purposes. No mobile opt-in data will be shared.",
+];
+---
+
+<Layout
+  title="Privacy Policy — Purewatt"
+  description="Purewatt's privacy policy — how we collect, use, and share the personal information you provide at purewatt.solar."
+>
+  <Nav />
+
+  <main>
+    <section class="bg-white py-20 md:py-28">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- HEADER -->
+        <p class="text-xs text-brand-orange font-semibold uppercase tracking-[0.18em] mb-4">
+          Legal
+        </p>
+        <h1 class="font-display text-5xl md:text-6xl font-extrabold tracking-tight text-body-text mb-3">
+          Privacy Policy
+        </h1>
+        <p class="text-sm text-muted-text mb-10">Last updated: June 2025</p>
+
+        <hr class="border-border-gray mb-10" />
+
+        <p class="border-l-4 border-brand-orange pl-6 text-lg text-muted-text leading-relaxed mb-16">
+          Purewatt, LLC operates purewatt.solar. This policy describes the personal information
+          we handle and your choices.
+        </p>
+
+        <!-- SECTIONS -->
+        <div class="space-y-12">
+          <div>
+            <h2 class="text-xs font-bold text-muted-text uppercase tracking-[0.18em] mb-4">
+              What we collect
+            </h2>
+            <ul class="space-y-3">
+              {collect.map((item) => (
+                <li class="flex items-start gap-3 text-base text-muted-text leading-relaxed">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0 mt-2.5"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="text-xs font-bold text-muted-text uppercase tracking-[0.18em] mb-4">
+              How we use it
+            </h2>
+            <ul class="space-y-3">
+              {use.map((item) => (
+                <li class="flex items-start gap-3 text-base text-muted-text leading-relaxed">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0 mt-2.5"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="text-xs font-bold text-muted-text uppercase tracking-[0.18em] mb-4">
+              Sharing
+            </h2>
+            <ul class="space-y-3">
+              {sharing.map((item) => (
+                <li class="flex items-start gap-3 text-base text-muted-text leading-relaxed">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0 mt-2.5"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="text-xs font-bold text-muted-text uppercase tracking-[0.18em] mb-4">
+              Communication consent (TCPA)
+            </h2>
+            <p class="text-base text-muted-text leading-relaxed">
+              Submitting our contact form authorizes Purewatt to contact you by phone or email at
+              the details you provided. Text messaging is separate and optional — you only
+              receive SMS if you explicitly opt in. Reply STOP to any SMS to opt out immediately,
+              or email us to be removed from any channel.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xs font-bold text-muted-text uppercase tracking-[0.18em] mb-4">
+              Retention
+            </h2>
+            <p class="text-base text-muted-text leading-relaxed">
+              We retain records for as long as needed to service your account and honor
+              warranties, and for the period required by applicable law.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xs font-bold text-muted-text uppercase tracking-[0.18em] mb-4">
+              Your rights
+            </h2>
+            <p class="text-base text-muted-text leading-relaxed">
+              You can request to see, correct, or delete your personal information at any time by
+              contacting us at the address below.
+            </p>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="bg-off-white rounded-2xl border border-border-gray p-8 shadow-card">
+            <h2 class="text-xs font-bold text-muted-text uppercase tracking-[0.18em] mb-4">
+              Contact
+            </h2>
+            <p class="font-semibold text-body-text mb-1">Purewatt</p>
+            <p class="text-muted-text mb-4">Tampa, FL</p>
+            <p class="mb-1">
+              <a href="mailto:info@purewatt.solar" class="text-brand-orange hover:underline">
+                info@purewatt.solar
+              </a>
+            </p>
+            <p>
+              <a href="tel:+18136036813" class="text-brand-orange hover:underline">
+                (813) 603-6813
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
