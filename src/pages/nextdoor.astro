@@ -1,0 +1,336 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="See if your area qualifies for solar funding. Get a free estimate from Purewatt." />
+    <link rel="icon" type="image/png" href="/images/logos/purewatt-logo-mark.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap"
+      rel="stylesheet"
+    />
+    <title>See If You Qualify — Purewatt Solar</title>
+  </head>
+
+  <body class="font-sans text-body-text antialiased bg-off-white min-h-screen flex flex-col items-center md:justify-center md:py-12">
+
+    <main class="w-full max-w-md bg-white md:rounded-2xl md:shadow-card-hover md:overflow-hidden">
+
+      <!-- HERO IMAGE -->
+      <img
+        src="/images/photos/nextdoor-landing-page.jpg"
+        alt="Solar panels on a Florida home"
+        class="w-full block"
+        width="800"
+        height="450"
+      />
+
+      <!-- FORM STEPS -->
+      <div class="px-6 py-8 sm:px-8 sm:py-10">
+
+        <!-- STEP 1: ZIP CODE -->
+        <div id="step-1" class="step">
+          <h1 class="font-display text-4xl font-extrabold tracking-tight text-body-text leading-tight mb-8">
+            See if your zip code qualifies for solar funding
+          </h1>
+          <div class="space-y-4">
+            <div>
+              <input
+                id="zip-input"
+                type="text"
+                inputmode="numeric"
+                maxlength="5"
+                placeholder="Enter your ZIP code"
+                autocomplete="postal-code"
+                aria-label="ZIP code"
+                class="w-full border border-border-gray rounded-lg px-4 py-3.5 text-body-text text-base placeholder:text-muted-text focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-transparent transition"
+              />
+              <p id="zip-error" class="hidden text-sm text-red-600 mt-1.5 font-medium">
+                Please enter a valid 5-digit ZIP code.
+              </p>
+            </div>
+            <button
+              id="zip-btn"
+              type="button"
+              class="w-full bg-brand-orange hover:bg-orange-light text-white font-bold py-4 rounded-lg text-base shadow-orange-glow hover:shadow-orange-glow-lg transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            >
+              Check Eligibility
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: NAME -->
+        <div id="step-2" class="step">
+          <p class="text-xs text-brand-orange font-semibold uppercase tracking-[0.18em] mb-3">
+            You qualify
+          </p>
+          <h2 class="font-display text-4xl font-extrabold tracking-tight text-body-text leading-tight mb-3">
+            Good news — funding is available in your area.
+          </h2>
+          <p class="text-lg text-muted-text leading-relaxed mb-8">
+            Who should we prepare the estimate for?
+          </p>
+          <div class="space-y-4">
+            <div>
+              <input
+                id="name-input"
+                type="text"
+                placeholder="John Smith"
+                autocomplete="name"
+                aria-label="Full name"
+                class="w-full border border-border-gray rounded-lg px-4 py-3.5 text-body-text text-base placeholder:text-muted-text focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-transparent transition"
+              />
+              <p id="name-error" class="hidden text-sm text-red-600 mt-1.5 font-medium">
+                Please enter your name.
+              </p>
+            </div>
+            <button
+              id="name-btn"
+              type="button"
+              class="w-full bg-brand-orange hover:bg-orange-light text-white font-bold py-4 rounded-lg text-base shadow-orange-glow hover:shadow-orange-glow-lg transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 3: PHONE + TCPA -->
+        <div id="step-3" class="step">
+          <h2 class="font-display text-4xl font-extrabold tracking-tight text-body-text leading-tight mb-3">
+            Thanks, <span id="step-3-name">there</span>!
+          </h2>
+          <p class="text-lg text-muted-text leading-relaxed mb-8">
+            Our team will be in touch shortly. What's the best number to reach you at?
+          </p>
+          <div class="space-y-4">
+            <div>
+              <input
+                id="phone-input"
+                type="tel"
+                placeholder="(813) 555-0100"
+                autocomplete="tel"
+                aria-label="Phone number"
+                class="w-full border border-border-gray rounded-lg px-4 py-3.5 text-body-text text-base placeholder:text-muted-text focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-transparent transition"
+              />
+              <p id="phone-error" class="hidden text-sm text-red-600 mt-1.5 font-medium">
+                Please enter a valid phone number (at least 10 digits).
+              </p>
+            </div>
+            <div class="flex items-start gap-3 bg-off-white border border-border-gray rounded-lg p-4">
+              <input
+                type="checkbox"
+                id="tcpa-check"
+                class="w-5 h-5 rounded border-2 border-border-gray accent-brand-orange flex-shrink-0 mt-0.5 cursor-pointer"
+              />
+              <label for="tcpa-check" class="text-xs text-muted-text leading-relaxed cursor-pointer">
+                By checking this box, I consent to be contacted by Purewatt at the number provided,
+                including via automated telephone dialing systems and/or pre-recorded calls/texts,
+                regarding solar products and services. Consent is not a condition of purchase.
+                Message and data rates may apply.
+              </label>
+            </div>
+            <p id="tcpa-error" class="hidden text-sm text-red-600 font-medium">
+              You must agree to the terms before continuing.
+            </p>
+            <p id="submit-error" class="hidden text-sm text-red-600 font-medium">
+              Something went wrong. Please try again.
+            </p>
+            <button
+              id="phone-btn"
+              type="button"
+              class="w-full bg-brand-orange hover:bg-orange-light text-white font-bold py-4 rounded-lg text-base shadow-orange-glow hover:shadow-orange-glow-lg transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              Get My Estimate
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 4: CONFIRMATION -->
+        <div id="step-4" class="step text-center py-4">
+          <img
+            src="/images/logos/purewatt-logo-horizontal.png"
+            alt="Purewatt"
+            class="h-8 w-auto mx-auto mb-8"
+            width="160"
+            height="32"
+          />
+          <div class="w-16 h-16 rounded-full bg-orange-tint text-brand-orange flex items-center justify-center mx-auto mb-6 shadow-orange-glow">
+            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+          <h2 class="font-display text-4xl font-extrabold tracking-tight text-body-text mb-4 leading-tight">
+            All set!
+          </h2>
+          <p class="text-lg text-muted-text leading-relaxed">
+            We'll be in touch soon. Keep an eye out for a call or text from the Purewatt team.
+          </p>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- HIDDEN NETLIFY FORM (required for Astro pre-render detection) -->
+    <form name="nextdoor-lead" netlify data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="nextdoor-lead" />
+      <input type="text" name="zip" />
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+    </form>
+
+    <style>
+      .step {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+    </style>
+
+    <script>
+      let zipValue = '';
+      let nameValue = '';
+
+      const step1 = document.getElementById('step-1') as HTMLElement;
+      const step2 = document.getElementById('step-2') as HTMLElement;
+      const step3 = document.getElementById('step-3') as HTMLElement;
+      const step4 = document.getElementById('step-4') as HTMLElement;
+
+      const zipInput   = document.getElementById('zip-input')   as HTMLInputElement;
+      const zipError   = document.getElementById('zip-error')   as HTMLElement;
+      const zipBtn     = document.getElementById('zip-btn')     as HTMLButtonElement;
+
+      const nameInput  = document.getElementById('name-input')  as HTMLInputElement;
+      const nameError  = document.getElementById('name-error')  as HTMLElement;
+      const nameBtn    = document.getElementById('name-btn')    as HTMLButtonElement;
+
+      const phoneInput = document.getElementById('phone-input') as HTMLInputElement;
+      const phoneError = document.getElementById('phone-error') as HTMLElement;
+      const tcpaCheck  = document.getElementById('tcpa-check')  as HTMLInputElement;
+      const tcpaError  = document.getElementById('tcpa-error')  as HTMLElement;
+      const submitErr  = document.getElementById('submit-error') as HTMLElement;
+      const phoneBtn   = document.getElementById('phone-btn')   as HTMLButtonElement;
+
+      const step3Name  = document.getElementById('step-3-name') as HTMLElement;
+
+      function showStep(el: HTMLElement, focusTarget?: HTMLElement) {
+        el.style.display = 'block';
+        // Double rAF ensures display:block is painted before opacity transitions
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            el.style.opacity = '1';
+            focusTarget?.focus();
+          });
+        });
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 50);
+      }
+
+      function hideStep(el: HTMLElement, callback: () => void) {
+        el.style.opacity = '0';
+        setTimeout(() => {
+          el.style.display = 'none';
+          callback();
+        }, 300);
+      }
+
+      function showErr(el: HTMLElement, msg?: string) {
+        if (msg) el.textContent = msg;
+        el.classList.remove('hidden');
+      }
+
+      function clearErr(el: HTMLElement) {
+        el.classList.add('hidden');
+      }
+
+      // Kick off with step 1
+      showStep(step1, zipInput);
+
+      // ── STEP 1: ZIP ──────────────────────────────────────────────
+      zipBtn.addEventListener('click', () => {
+        const val = zipInput.value.trim();
+        if (!/^\d{5}$/.test(val)) {
+          showErr(zipError);
+          zipInput.focus();
+          return;
+        }
+        clearErr(zipError);
+        zipValue = val;
+        hideStep(step1, () => showStep(step2, nameInput));
+      });
+
+      zipInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') zipBtn.click(); });
+
+      // ── STEP 2: NAME ─────────────────────────────────────────────
+      nameBtn.addEventListener('click', () => {
+        const val = nameInput.value.trim();
+        if (!val) {
+          showErr(nameError);
+          nameInput.focus();
+          return;
+        }
+        clearErr(nameError);
+        nameValue = val;
+        step3Name.textContent = val.split(' ')[0];
+        hideStep(step2, () => showStep(step3, phoneInput));
+      });
+
+      nameInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') nameBtn.click(); });
+
+      // ── STEP 3: PHONE + TCPA ─────────────────────────────────────
+      tcpaCheck.addEventListener('change', () => { if (tcpaCheck.checked) clearErr(tcpaError); });
+
+      phoneBtn.addEventListener('click', async () => {
+        const digits = phoneInput.value.replace(/\D/g, '');
+        let valid = true;
+
+        clearErr(phoneError);
+        clearErr(tcpaError);
+        clearErr(submitErr);
+
+        if (digits.length < 10) {
+          showErr(phoneError);
+          phoneInput.focus();
+          valid = false;
+        }
+        if (!tcpaCheck.checked) {
+          showErr(tcpaError);
+          valid = false;
+        }
+        if (!valid) return;
+
+        phoneBtn.disabled = true;
+        phoneBtn.textContent = 'Submitting…';
+
+        try {
+          const res = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+              'form-name': 'nextdoor-lead',
+              zip: zipValue,
+              name: nameValue,
+              phone: phoneInput.value,
+            }).toString(),
+          });
+          if (!res.ok) throw new Error('non-ok');
+          hideStep(step3, () => showStep(step4));
+        } catch {
+          phoneBtn.disabled = false;
+          phoneBtn.textContent = 'Get My Estimate';
+          showErr(submitErr, 'Something went wrong. Please try again.');
+        }
+      });
+
+      phoneInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') phoneBtn.click(); });
+    </script>
+
+  </body>
+</html>
