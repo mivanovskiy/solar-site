@@ -1,0 +1,294 @@
+---
+import "../styles/global.css";
+
+const benefits = [
+  { title: "$0 Investment", body: "No money out of pocket, ever" },
+  { title: "No Loans", body: "No debt, no financing to qualify for" },
+  { title: "Panels Insured", body: "Fully covered, your risk is zero" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Cut your electric bill by 20–40% starting day one. No loans, $0 out of pocket. See if you qualify." />
+    <link rel="icon" type="image/png" href="/images/logos/purewatt-logo-mark.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cut Your Electric Bill 20–40% — Purewatt</title>
+  </head>
+
+  <body class="font-sans text-body-text antialiased bg-off-white min-h-screen">
+
+    <!-- MINIMAL HEADER — logo only, no nav -->
+    <header class="bg-white border-b border-border-gray">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 py-4 flex justify-center">
+        <a href="/" aria-label="Purewatt homepage">
+          <img
+            src="/images/logos/purewatt-logo-horizontal.png"
+            alt="Purewatt"
+            class="h-9 w-auto"
+            width="180"
+            height="36"
+          />
+        </a>
+      </div>
+    </header>
+
+    <main class="max-w-2xl mx-auto px-4 sm:px-6 py-8 pb-16">
+
+      <!-- HERO IMAGE with overlaid headline -->
+      <div class="relative rounded-2xl overflow-hidden shadow-ink-deep">
+        <img
+          src="/images/photos/finished-installation-3.jpg"
+          alt="Completed solar installation on a Tampa home"
+          class="w-full h-64 sm:h-80 object-cover"
+          width="900"
+          height="600"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+          <h1 class="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-2">
+            Cut your electric bill by 20–40% starting day one.
+          </h1>
+          <p class="text-white/80 text-base leading-relaxed">
+            For qualified Tampa homeowners. No loans. $0 out of pocket. Panels fully insured.
+          </p>
+        </div>
+      </div>
+
+      <!-- ALEX QUOTE BLOCK -->
+      <div class="relative bg-ink rounded-2xl mt-6 overflow-hidden">
+        <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-orange"></div>
+        <div class="px-7 py-6 pl-9">
+          <blockquote class="text-white/85 italic leading-relaxed text-base">
+            "We've been serving Tampa homeowners for years. When we find something that genuinely
+            saves our customers money, we pass it along. Purewatt is one of those things."
+          </blockquote>
+          <p class="text-brand-orange text-sm font-semibold mt-3">— A note from Alex</p>
+        </div>
+      </div>
+
+      <!-- LEAD CAPTURE FORM -->
+      <div class="bg-white rounded-2xl border border-border-gray shadow-card mt-6 p-6 sm:p-8">
+        <p class="text-xs text-brand-orange font-semibold uppercase tracking-[0.18em] mb-2">
+          Free estimate
+        </p>
+        <h2 class="font-display text-3xl font-extrabold tracking-tight text-body-text mb-6 leading-tight">
+          See if you qualify
+        </h2>
+
+        <!-- FORM (visible until submit) -->
+        <form
+          id="valcraft-form"
+          name="valcraft"
+          method="POST"
+          data-netlify="true"
+          class="space-y-4"
+          novalidate
+        >
+          <input type="hidden" name="form-name" value="valcraft" />
+
+          <!-- Full name -->
+          <div>
+            <label for="vf-name" class="block text-sm font-semibold text-body-text mb-1.5">
+              Full Name <span class="text-brand-orange" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text"
+              id="vf-name"
+              name="name"
+              required
+              autocomplete="name"
+              placeholder="Jane Smith"
+              class="w-full border border-border-gray rounded-lg px-4 py-3 text-body-text placeholder:text-muted-text focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-transparent text-base transition"
+            />
+            <p id="vf-name-error" class="hidden text-sm text-red-600 mt-1.5 font-medium">
+              Please enter your full name.
+            </p>
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label for="vf-phone" class="block text-sm font-semibold text-body-text mb-1.5">
+              Phone Number <span class="text-brand-orange" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="tel"
+              id="vf-phone"
+              name="phone"
+              required
+              autocomplete="tel"
+              placeholder="(813) 555-0100"
+              class="w-full border border-border-gray rounded-lg px-4 py-3 text-body-text placeholder:text-muted-text focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-transparent text-base transition"
+            />
+            <p id="vf-phone-error" class="hidden text-sm text-red-600 mt-1.5 font-medium">
+              Please enter a valid phone number (at least 10 digits).
+            </p>
+          </div>
+
+          <!-- TCPA consent -->
+          <div class="flex items-start gap-3 bg-off-white border border-border-gray rounded-lg p-4">
+            <input
+              type="checkbox"
+              id="vf-tcpa"
+              name="tcpa-consent"
+              class="w-5 h-5 rounded border-2 border-border-gray accent-brand-orange flex-shrink-0 mt-0.5 cursor-pointer"
+            />
+            <label for="vf-tcpa" class="text-xs text-muted-text leading-relaxed cursor-pointer">
+              By checking this box, you consent to receive calls and text messages from Purewatt
+              at the number provided, including via automated technology. Message &amp; data rates
+              may apply. You may opt out at any time by replying STOP. Consent is not a condition
+              of purchase. View our{" "}
+              <a href="/privacy-policy" class="text-brand-orange hover:underline">Privacy Policy</a>.
+            </label>
+          </div>
+          <p id="vf-tcpa-error" class="hidden text-sm text-red-600 font-medium">
+            Please agree to the terms before submitting.
+          </p>
+          <p id="vf-submit-error" class="hidden text-sm text-red-600 font-medium">
+            Something went wrong. Please try again.
+          </p>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            id="vf-submit"
+            class="w-full bg-brand-orange hover:bg-orange-light text-white font-bold py-4 rounded-lg text-base shadow-orange-glow hover:shadow-orange-glow-lg transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            See If I Qualify →
+          </button>
+        </form>
+
+        <!-- SUCCESS STATE (hidden until form submits) -->
+        <div id="vf-success" class="hidden text-center py-6" role="status" aria-live="polite">
+          <div class="w-14 h-14 rounded-full bg-orange-tint text-brand-orange flex items-center justify-center mx-auto mb-5 shadow-orange-glow">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+          <h3 class="font-display text-3xl font-bold text-body-text mb-3">You're on the list.</h3>
+          <p class="text-muted-text leading-relaxed mb-4">
+            Alex will be in touch within 24 hours. Questions? Call{" "}
+            <a href="tel:+17347679970" class="text-brand-orange font-semibold hover:underline">
+              (734) 767-9970
+            </a>{" "}
+            and mention <strong class="text-body-text">ALEX</strong> for special bonuses.
+          </p>
+        </div>
+      </div>
+
+      <!-- PHONE CTA -->
+      <div class="mt-6 bg-white rounded-2xl border border-border-gray shadow-card p-8 text-center">
+        <p class="text-sm text-muted-text mb-2">Prefer to call?</p>
+        <a
+          href="tel:+17347679970"
+          class="font-display text-4xl sm:text-5xl font-extrabold text-brand-orange block mb-5 hover:text-orange-light transition-colors duration-200"
+        >
+          (734) 767-9970
+        </a>
+        <p class="text-sm text-body-text font-medium mb-2">Mention referral code</p>
+        <span class="inline-block bg-brand-orange text-white font-bold px-6 py-2 rounded-lg text-xl tracking-widest shadow-orange-glow">
+          ALEX
+        </span>
+        <p class="text-xs text-muted-text mt-3">to unlock special bonuses when you call</p>
+      </div>
+
+      <!-- BENEFIT CARDS -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+        {benefits.map((b) => (
+          <div class="bg-white rounded-xl border border-border-gray p-6 shadow-card text-center">
+            <div class="w-1 h-6 bg-brand-orange mx-auto rounded-full mb-4"></div>
+            <h3 class="font-semibold text-body-text mb-1">{b.title}</h3>
+            <p class="text-sm text-muted-text leading-relaxed">{b.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- MINIMAL FOOTER -->
+      <p class="mt-12 text-center text-xs text-muted-text">
+        &copy; {new Date().getFullYear()} Purewatt LLC. All rights reserved. &mdash;{" "}
+        <a href="/privacy-policy" class="hover:text-brand-orange transition-colors duration-200">Privacy Policy</a>
+      </p>
+
+    </main>
+
+    <script>
+      const form        = document.getElementById('valcraft-form')  as HTMLFormElement;
+      const success     = document.getElementById('vf-success')!;
+      const submitBtn   = document.getElementById('vf-submit')      as HTMLButtonElement;
+
+      const nameInput   = document.getElementById('vf-name')        as HTMLInputElement;
+      const nameError   = document.getElementById('vf-name-error')!;
+
+      const phoneInput  = document.getElementById('vf-phone')       as HTMLInputElement;
+      const phoneError  = document.getElementById('vf-phone-error')!;
+
+      const tcpaCheck   = document.getElementById('vf-tcpa')        as HTMLInputElement;
+      const tcpaError   = document.getElementById('vf-tcpa-error')!;
+
+      const submitError = document.getElementById('vf-submit-error')!;
+
+      function showErr(el: HTMLElement) { el.classList.remove('hidden'); }
+      function clearErr(el: HTMLElement) { el.classList.add('hidden'); }
+
+      tcpaCheck.addEventListener('change', () => { if (tcpaCheck.checked) clearErr(tcpaError); });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        clearErr(nameError);
+        clearErr(phoneError);
+        clearErr(tcpaError);
+        clearErr(submitError);
+
+        const name   = nameInput.value.trim();
+        const digits = phoneInput.value.replace(/\D/g, '');
+        let valid = true;
+
+        if (!name) {
+          showErr(nameError);
+          nameInput.focus();
+          valid = false;
+        }
+        if (digits.length < 10) {
+          showErr(phoneError);
+          if (valid) phoneInput.focus();
+          valid = false;
+        }
+        if (!tcpaCheck.checked) {
+          showErr(tcpaError);
+          valid = false;
+        }
+        if (!valid) return;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting…';
+
+        try {
+          const res = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
+          });
+          if (!res.ok) throw new Error('non-ok');
+          form.classList.add('hidden');
+          success.classList.remove('hidden');
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'See If I Qualify →';
+          showErr(submitError);
+        }
+      });
+    </script>
+
+  </body>
+</html>
